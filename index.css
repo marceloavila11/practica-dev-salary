@@ -302,7 +302,8 @@ h2 {
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
-.filter-btn {
+.filter-btn,
+.filter-btn-p4 {
   font-size: 12px;
   padding: 5px 14px;
   border-radius: 20px;
@@ -314,7 +315,9 @@ h2 {
   font-family: var(--sans);
 }
 .filter-btn:hover,
-.filter-btn.active {
+.filter-btn.active,
+.filter-btn-p4:hover,
+.filter-btn-p4.active {
   background: var(--accent);
   border-color: var(--accent);
   color: #fff;
