@@ -1,0 +1,356 @@
+﻿<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Developer Salary Reality 2025 — SO Survey × Numbeo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <nav>
+      <span class="logo">DEV SALARY REALITY 2025</span>
+      <ul>
+        <li><a href="#hero">Inicio</a></li>
+        <li><a href="#sapa">SAPA</a></li>
+        <li><a href="#tech">Cloud & IA</a></li>
+        <li><a href="#agents">AI Agents</a></li>
+        <li><a href="#latam">LATAM</a></li>
+        <li><a href="#profile">Perfil</a></li>
+      </ul>
+    </nav>
+
+    <section id="hero" style="position: relative">
+      <div class="container">
+        <p class="section-label">
+          Stack Overflow Developer Survey 2025 × Numbeo CLI 2025
+        </p>
+        <h1>El salario que<br />ves no es el que<br />vives</h1>
+        <p class="lead">
+          $30K en Ecuador tiene más poder adquisitivo real que $90K en Londres.
+          Esta visualización presenta el
+          <strong style="color: var(--accent2)">SAPA</strong> — Salario Ajustado
+          por Poder Adquisitivo — cruzando 49.123 desarrolladores globales con
+          el índice de costo de vida Numbeo 2025.
+        </p>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="val" id="stat1">0</div>
+            <div class="lbl">Desarrolladores</div>
+          </div>
+          <div class="stat-card">
+            <div class="val" id="stat2">0</div>
+            <div class="lbl">Países</div>
+          </div>
+          <div class="stat-card">
+            <div class="val" id="stat3">0</div>
+            <div class="lbl">Columnas de datos</div>
+          </div>
+          <div class="stat-card">
+            <div class="val" id="stat4">0</div>
+            <div class="lbl">Métricas derivadas</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 32px">
+          <p style="font-size: 13px; color: var(--muted); margin-bottom: 12px">
+            La fórmula central
+          </p>
+          <div class="sapa-formula">
+            <div>
+              <div style="color: var(--accent2); font-size: 20px">SAPA</div>
+              <div class="f-part">
+                Salario Ajustado<br />por Poder Adquisitivo
+              </div>
+            </div>
+            <div class="f-op">=</div>
+            <div>
+              <div>Salario anual (USD)</div>
+              <div
+                style="
+                  border-top: 1px solid var(--border);
+                  margin-top: 4px;
+                  padding-top: 4px;
+                  color: var(--muted);
+                  font-size: 14px;
+                "
+              >
+                Numbeo Cost of Living Index
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sapa-eg">
+          <div class="eg-card">
+            <div class="eg-flag">🇪🇨</div>
+            <div class="eg-nom">Ecuador — $30,000 / CLI 30.0</div>
+            <div class="eg-sapa">SAPA = 1,000</div>
+            <div class="eg-label">poder adquisitivo real</div>
+          </div>
+          <div class="eg-card" style="border-color: rgba(255, 255, 255, 0.15)">
+            <div class="eg-flag">🇬🇧</div>
+            <div class="eg-nom">UK — $90,000 / CLI 59.2</div>
+            <div class="eg-sapa" style="color: var(--accent3)">
+              SAPA = 1,520
+            </div>
+            <div class="eg-label">poder adquisitivo real</div>
+          </div>
+          <div class="eg-card" style="border-color: rgba(255, 255, 255, 0.15)">
+            <div class="eg-flag">🇺🇸</div>
+            <div class="eg-nom">USA — $140,000 / CLI 64.9</div>
+            <div class="eg-sapa" style="color: var(--danger)">SAPA = 2,157</div>
+            <div class="eg-label">poder adquisitivo real</div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-hint">▼ explorar</div>
+    </section>
+
+    <section id="sapa" style="background: var(--bg2)">
+      <div class="container">
+        <p class="section-label fade-up">P1 + P5 — Compensación real</p>
+        <h2 class="fade-up">SAPA por región y<br />modalidad de trabajo</h2>
+        <p class="subtitle fade-up">
+          Eastern Europe casi iguala a Western Europe en poder adquisitivo real,
+          pese a salarios nominales 2× menores. El trabajo remoto amplifica la
+          brecha.
+        </p>
+
+        <div class="two-col">
+          <div class="chart-wrap fade-up">
+            <div class="chart-title">
+              SAPA mediano por región (con rango P25–P75)
+            </div>
+            <svg id="chart-region"></svg>
+          </div>
+          <div class="chart-wrap fade-up">
+            <div class="chart-title">
+              Distribución SAPA por modalidad de trabajo
+            </div>
+            <svg id="chart-remote"></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tech">
+      <div class="container">
+        <p class="section-label fade-up">P2 — Cloud & modelos IA</p>
+        <h2 class="fade-up">¿Qué tecnologías<br />pagan más?</h2>
+        <p class="subtitle fade-up">
+          Adopción vs salario ajustado. Eje X = % de devs que la usan. Eje Y =
+          SAPA mediano de quienes la usan. Tamaño = volumen de usuarios.
+        </p>
+
+        <div class="filter-bar fade-up">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="cloud">Cloud / DevOps</button>
+          <button class="filter-btn" data-filter="ai_model">Modelos IA</button>
+        </div>
+
+        <div class="chart-wrap fade-up">
+          <div class="legend">
+            <div class="legend-item">
+              <div class="legend-dot" style="background: #1a56db"></div>
+              Cloud / DevOps
+            </div>
+            <div class="legend-item">
+              <div class="legend-dot" style="background: #111111"></div>
+              Modelos IA
+            </div>
+          </div>
+          <svg id="chart-bubble"></svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="agents" style="background: var(--bg2)">
+      <div class="container">
+        <p class="section-label fade-up">P3 — Adopción de AI Agents</p>
+        <h2 class="fade-up">¿Quién usa<br />AI Agents en el trabajo?</h2>
+        <p class="subtitle fade-up">
+          Frecuencia de uso de AI Agents por región. North America lidera en uso
+          diario. LATAM y South Asia muestran alta intención pero menor adopción
+          efectiva.
+        </p>
+
+        <div class="chart-wrap fade-up">
+          <div class="chart-title">
+            % de devs por región y nivel de adopción de AI Agents
+          </div>
+          <svg id="chart-heatmap"></svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="latam">
+      <div class="container">
+        <p class="section-label fade-up">
+          P4 — Perfil tech mejor pagados en LATAM
+        </p>
+        <h2 class="fade-up">
+          ¿Qué stack usan los devs<br />mejor pagados en LATAM?
+        </h2>
+        <p class="subtitle fade-up">
+          Tecnologías ordenadas por
+          <strong style="color: var(--accent2)"
+            >SAPA mediano de sus usuarios en LATAM</strong
+          >. ● barra llena = LATAM · línea punteada = promedio global. Un stack
+          alto en SAPA pero bajo en adopción es una oportunidad de
+          diferenciación.
+        </p>
+
+        <div class="filter-bar fade-up">
+          <button class="filter-btn-p4 active" data-cat="lang">
+            Lenguajes
+          </button>
+          <button class="filter-btn-p4" data-cat="platform">
+            Cloud / DevOps
+          </button>
+          <button class="filter-btn-p4" data-cat="ai">Modelos IA</button>
+        </div>
+
+        <div class="two-col" style="align-items: start">
+          <div class="chart-wrap fade-up">
+            <div class="chart-title" id="p4-chart-title">
+              SAPA mediano por lenguaje — usuarios en LATAM
+            </div>
+            <div
+              style="
+                display: flex;
+                gap: 16px;
+                margin-bottom: 12px;
+                font-size: 12px;
+                color: var(--muted);
+              "
+            >
+              <span style="display: flex; align-items: center; gap: 6px">
+                <span
+                  style="
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    background: #1a56db;
+                    display: inline-block;
+                  "
+                ></span
+                >SAPA LATAM
+              </span>
+              <span style="display: flex; align-items: center; gap: 6px">
+                <span
+                  style="
+                    width: 16px;
+                    height: 2px;
+                    border-top: 2px dashed #111111;
+                    display: inline-block;
+                  "
+                ></span
+                >SAPA Global
+              </span>
+            </div>
+            <svg id="chart-p4-main"></svg>
+          </div>
+          <div>
+            <div class="chart-wrap fade-up">
+              <div class="chart-title">% adopción en LATAM</div>
+              <svg id="chart-p4-adopt"></svg>
+            </div>
+            <div class="callout fade-up" style="margin-top: 20px">
+              <h3>🇪🇨 Ecuador en el dataset</h3>
+              <p>
+                <span class="callout-highlight">28 desarrolladores</span> de
+                Ecuador respondieron la encuesta.<br />
+                Salario mediano:
+                <span class="callout-highlight">$30,000 USD</span><br />
+                Numbeo CLI 2025: <span class="callout-highlight">30.0</span
+                ><br />
+                SAPA mediano: <span class="callout-highlight">1,000</span> —
+                comparable con Portugal (SAPA ~860) pese a un salario nominal 2×
+                menor.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="profile" style="background: var(--bg2)">
+      <div class="container">
+        <p class="section-label fade-up">P6 — Perfil del dev mejor pagado</p>
+        <h2 class="fade-up">Amplitud tecnológica<br />y satisfacción</h2>
+        <p class="subtitle fade-up">
+          Número de lenguajes usados vs SAPA. Color = satisfacción laboral
+          mediana. El sweet spot: 7–10 lenguajes maximiza compensación y
+          satisfacción simultáneamente.
+        </p>
+
+        <div class="filter-bar fade-up">
+          <select class="filter-select" id="scatter-region">
+            <option value="all">Todas las regiones</option>
+            <option value="North America">North America</option>
+            <option value="Western Europe">Western Europe</option>
+            <option value="Eastern Europe">Eastern Europe</option>
+            <option value="Latin America">Latin America</option>
+            <option value="South & Southeast Asia">
+              South & Southeast Asia
+            </option>
+          </select>
+        </div>
+
+        <div class="chart-wrap fade-up">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              margin-bottom: 16px;
+              font-size: 12px;
+              color: var(--muted);
+            "
+          >
+            <span>Satisfacción laboral:</span>
+            <div style="display: flex; align-items: center; gap: 4px">
+              <div
+                style="
+                  width: 60px;
+                  height: 8px;
+                  border-radius: 4px;
+                  background: linear-gradient(90deg, #e02424, #d97706, #057a55);
+                "
+              ></div>
+              <span>baja → alta</span>
+            </div>
+          </div>
+          <svg id="chart-scatter"></svg>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        <strong>José Marcelo Avila Fajardo</strong> · M2.859 Visualización de
+        Datos · UOC 2025<br />
+        Datos:
+        <a href="https://survey.stackoverflow.co/2025/" target="_blank"
+          >Stack Overflow Developer Survey 2025</a
+        >
+        (ODbL) ×
+        <a
+          href="https://www.numbeo.com/cost-of-living/rankings_by_country.jsp"
+          target="_blank"
+          >Numbeo CLI 2025</a
+        ><br />
+        <span style="color: var(--muted); font-size: 12px"
+          >49,123 respuestas · 177 países · n salarial = 23,195 con SAPA
+          calculado</span
+        >
+      </p>
+    </footer>
+
+    <div id="tooltip" class="tooltip" style="opacity: 0"></div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
