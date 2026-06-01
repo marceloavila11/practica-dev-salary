@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Developer Salary Reality 2025 — SO Survey × Numbeo</title>
+    <title>Realidad Salarial del Desarrollador 2025 — SO Survey × Numbeo</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <nav>
-      <span class="logo">DEV SALARY REALITY 2025</span>
+      <span class="logo">REALIDAD SALARIAL DEL DEV 2025</span>
       <ul>
         <li><a href="#hero">Inicio</a></li>
         <li><a href="#sapa">SAPA</a></li>
-        <li><a href="#tech">Cloud & IA</a></li>
-        <li><a href="#agents">AI Agents</a></li>
+        <li><a href="#tech">Nube e IA</a></li>
+        <li><a href="#agents">Agentes IA</a></li>
         <li><a href="#latam">LATAM</a></li>
         <li><a href="#profile">Perfil</a></li>
       </ul>
@@ -76,7 +76,7 @@
                   font-size: 14px;
                 "
               >
-                Numbeo Cost of Living Index
+                Índice de Costo de Vida Numbeo
               </div>
             </div>
           </div>
@@ -85,21 +85,19 @@
         <div class="sapa-eg">
           <div class="eg-card">
             <div class="eg-flag">🇪🇨</div>
-            <div class="eg-nom">Ecuador — $30,000 / CLI 30.0</div>
+            <div class="eg-nom">Ecuador — $30,000 / ICV 30.0</div>
             <div class="eg-sapa">SAPA = 1,000</div>
             <div class="eg-label">poder adquisitivo real</div>
           </div>
-          <div class="eg-card" style="border-color: rgba(255, 255, 255, 0.15)">
+          <div class="eg-card" style="border-color: rgba(0, 0, 0, 0.12)">
             <div class="eg-flag">🇬🇧</div>
-            <div class="eg-nom">UK — $90,000 / CLI 59.2</div>
-            <div class="eg-sapa" style="color: var(--accent3)">
-              SAPA = 1,520
-            </div>
+            <div class="eg-nom">Reino Unido — $90,000 / ICV 59.2</div>
+            <div class="eg-sapa" style="color: #d97706">SAPA = 1,520</div>
             <div class="eg-label">poder adquisitivo real</div>
           </div>
-          <div class="eg-card" style="border-color: rgba(255, 255, 255, 0.15)">
+          <div class="eg-card" style="border-color: rgba(0, 0, 0, 0.12)">
             <div class="eg-flag">🇺🇸</div>
-            <div class="eg-nom">USA — $140,000 / CLI 64.9</div>
+            <div class="eg-nom">EE.UU. — $140,000 / ICV 64.9</div>
             <div class="eg-sapa" style="color: var(--danger)">SAPA = 2,157</div>
             <div class="eg-label">poder adquisitivo real</div>
           </div>
@@ -113,9 +111,9 @@
         <p class="section-label fade-up">P1 + P5 — Compensación real</p>
         <h2 class="fade-up">SAPA por región y<br />modalidad de trabajo</h2>
         <p class="subtitle fade-up">
-          Eastern Europe casi iguala a Western Europe en poder adquisitivo real,
-          pese a salarios nominales 2× menores. El trabajo remoto amplifica la
-          brecha.
+          Europa del Este casi iguala a Europa Occidental en poder adquisitivo
+          real, pese a salarios nominales 2× menores. El trabajo remoto
+          amplifica la brecha.
         </p>
 
         <div class="two-col">
@@ -137,7 +135,7 @@
 
     <section id="tech">
       <div class="container">
-        <p class="section-label fade-up">P2 — Cloud & modelos IA</p>
+        <p class="section-label fade-up">P2 — Nube y modelos de IA</p>
         <h2 class="fade-up">¿Qué tecnologías<br />pagan más?</h2>
         <p class="subtitle fade-up">
           Adopción vs salario ajustado. Eje X = % de devs que la usan. Eje Y =
@@ -146,19 +144,21 @@
 
         <div class="filter-bar fade-up">
           <button class="filter-btn active" data-filter="all">Todos</button>
-          <button class="filter-btn" data-filter="cloud">Cloud / DevOps</button>
-          <button class="filter-btn" data-filter="ai_model">Modelos IA</button>
+          <button class="filter-btn" data-filter="cloud">Nube / DevOps</button>
+          <button class="filter-btn" data-filter="ai_model">
+            Modelos de IA
+          </button>
         </div>
 
         <div class="chart-wrap fade-up">
           <div class="legend">
             <div class="legend-item">
               <div class="legend-dot" style="background: #1a56db"></div>
-              Cloud / DevOps
+              Nube / DevOps
             </div>
             <div class="legend-item">
               <div class="legend-dot" style="background: #111111"></div>
-              Modelos IA
+              Modelos de IA
             </div>
           </div>
           <svg id="chart-bubble"></svg>
@@ -168,17 +168,17 @@
 
     <section id="agents" style="background: var(--bg2)">
       <div class="container">
-        <p class="section-label fade-up">P3 — Adopción de AI Agents</p>
-        <h2 class="fade-up">¿Quién usa<br />AI Agents en el trabajo?</h2>
+        <p class="section-label fade-up">P3 — Adopción de Agentes de IA</p>
+        <h2 class="fade-up">¿Quién usa<br />Agentes de IA en el trabajo?</h2>
         <p class="subtitle fade-up">
-          Frecuencia de uso de AI Agents por región. North America lidera en uso
-          diario. LATAM y South Asia muestran alta intención pero menor adopción
-          efectiva.
+          Frecuencia de uso de Agentes de IA por región. Norteamérica lidera en
+          uso diario. LATAM y Asia del Sur muestran alta intención pero menor
+          adopción efectiva.
         </p>
 
         <div class="chart-wrap fade-up">
           <div class="chart-title">
-            % de devs por región y nivel de adopción de AI Agents
+            % de devs por región y nivel de adopción de Agentes de IA
           </div>
           <svg id="chart-heatmap"></svg>
         </div>
@@ -188,7 +188,7 @@
     <section id="latam">
       <div class="container">
         <p class="section-label fade-up">
-          P4 — Perfil tech mejor pagados en LATAM
+          P4 — Perfil tech de los mejor pagados en LATAM
         </p>
         <h2 class="fade-up">
           ¿Qué stack usan los devs<br />mejor pagados en LATAM?
@@ -197,7 +197,7 @@
           Tecnologías ordenadas por
           <strong style="color: var(--accent2)"
             >SAPA mediano de sus usuarios en LATAM</strong
-          >. ● barra llena = LATAM · línea punteada = promedio global. Un stack
+          >. Barra llena = LATAM · línea punteada = promedio global. Un stack
           alto en SAPA pero bajo en adopción es una oportunidad de
           diferenciación.
         </p>
@@ -207,9 +207,9 @@
             Lenguajes
           </button>
           <button class="filter-btn-p4" data-cat="platform">
-            Cloud / DevOps
+            Nube / DevOps
           </button>
-          <button class="filter-btn-p4" data-cat="ai">Modelos IA</button>
+          <button class="filter-btn-p4" data-cat="ai">Modelos de IA</button>
         </div>
 
         <div class="two-col" style="align-items: start">
@@ -264,8 +264,8 @@
                 Ecuador respondieron la encuesta.<br />
                 Salario mediano:
                 <span class="callout-highlight">$30,000 USD</span><br />
-                Numbeo CLI 2025: <span class="callout-highlight">30.0</span
-                ><br />
+                Índice de Costo de Vida Numbeo 2025:
+                <span class="callout-highlight">30.0</span><br />
                 SAPA mediano: <span class="callout-highlight">1,000</span> —
                 comparable con Portugal (SAPA ~860) pese a un salario nominal 2×
                 menor.
@@ -279,22 +279,24 @@
     <section id="profile" style="background: var(--bg2)">
       <div class="container">
         <p class="section-label fade-up">P6 — Perfil del dev mejor pagado</p>
-        <h2 class="fade-up">Amplitud tecnológica<br />y satisfacción</h2>
+        <h2 class="fade-up">
+          Amplitud tecnológica<br />y satisfacción laboral
+        </h2>
         <p class="subtitle fade-up">
           Número de lenguajes usados vs SAPA. Color = satisfacción laboral
-          mediana. El sweet spot: 7–10 lenguajes maximiza compensación y
+          mediana. La zona ideal: entre 7 y 10 lenguajes maximiza compensación y
           satisfacción simultáneamente.
         </p>
 
         <div class="filter-bar fade-up">
           <select class="filter-select" id="scatter-region">
             <option value="all">Todas las regiones</option>
-            <option value="North America">North America</option>
-            <option value="Western Europe">Western Europe</option>
-            <option value="Eastern Europe">Eastern Europe</option>
-            <option value="Latin America">Latin America</option>
+            <option value="North America">Norteamérica</option>
+            <option value="Western Europe">Europa Occidental</option>
+            <option value="Eastern Europe">Europa del Este</option>
+            <option value="Latin America">América Latina</option>
             <option value="South & Southeast Asia">
-              South & Southeast Asia
+              Asia del Sur y Sureste
             </option>
           </select>
         </div>
@@ -343,8 +345,7 @@
           >Numbeo CLI 2025</a
         ><br />
         <span style="color: var(--muted); font-size: 12px"
-          >49,123 respuestas · 177 países · n salarial = 23,195 con SAPA
-          calculado</span
+          >49.123 respuestas · 177 países · 23.195 devs con SAPA calculado</span
         >
       </p>
     </footer>
