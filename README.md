@@ -6,7 +6,7 @@ Máster en Ciencia de Datos · Universitat Oberta de Catalunya (UOC)
 
 ## Ver online
 
-https://github.com/marceloavila11/practica-dev-salary.git
+[https://github.com/marceloavila11/practica-dev-salary.git](https://marceloavila11.github.io/practica-dev-salary/)
 
 ## Descripción
 
